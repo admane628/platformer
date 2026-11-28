@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DirectAnimationSwitcher : MonoBehaviour
+public class Player : MonoBehaviour
 {
     private Animator animator;
     private string[] animationNames = { "Walk", "Fat1", "Fat2", "Fat3", "Fat4" };
@@ -17,8 +17,7 @@ public class DirectAnimationSwitcher : MonoBehaviour
         animator = GetComponent<Animator>();
         targetPosition = transform.position;
 
-        currentIndex = 0;
-        PlayCurrentAnimation();
+        PlayAnimation(currentIndex);
     }
 
     void Update()
@@ -45,9 +44,21 @@ public class DirectAnimationSwitcher : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.fixedDeltaTime);
     }
 
-    void PlayCurrentAnimation()
+    void PlayAnimation(int index)
     {
-        string targetAnimation = animationNames[currentIndex];
+        string targetAnimation = animationNames[index];
         animator.Play(targetAnimation);
+    }
+
+    public void PlayNextAnimation(){
+        // Incrémente l'index sans dépasser la taille du tableau
+        int originalIndex = currentIndex ;
+        currentIndex = Mathf.Min(currentIndex + 1, animationNames.Length - 1);
+        if(originalIndex != currentIndex){
+            GameObject fond = GameObject.Find("fond/RawImage");
+            BackgroundScroller bg = fond.GetComponent<BackgroundScroller>();
+            bg.scrollSpeed = bg.scrollSpeed * 0.8f ; // decrease it by 20%
+        }
+        PlayAnimation(currentIndex);
     }
 }

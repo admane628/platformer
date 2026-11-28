@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class BackgroundScroller : MonoBehaviour
 {
     private RawImage rawImage;
-    [SerializeField] private float scrollSpeed = 0.2f;
+    public float scrollSpeed = 15f;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class BackgroundScroller : MonoBehaviour
     {
         // Move the UV rect continuously along the X axis
         Rect uvRect = rawImage.uvRect;
-        uvRect.x += scrollSpeed * Time.deltaTime;
+        uvRect.x += scrollSpeed / 100f * Time.deltaTime;
         rawImage.uvRect = uvRect;
     }
 }

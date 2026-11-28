@@ -198,6 +198,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &197402726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 197402728}
+  - component: {fileID: 197402729}
+  m_Layer: 0
+  m_Name: ObstacleSoawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &197402728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197402726}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.15184, y: 0.18694, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &197402729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197402726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856115ad364c415448dbd027b5dc91a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Generator
+  foodPrefab: {fileID: 9019104754914290922, guid: c4bc6806f3198184fbc793f32de74b1f, type: 3}
+  spawnInterval: 7
+  spawnXOffset: 2
+  yPositions:
+  - -0.5
+  - -3
+  - -4.5
+  minHeightPixels: 100
+  spriteFolder: Sprites/obstacle
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +521,7 @@ GameObject:
   - component: {fileID: 918899208}
   - component: {fileID: 918899207}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: FoodSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,13 +540,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Generator
   foodPrefab: {fileID: 9019104754914290922, guid: 7d27930b135ef4945930528c431a91d5, type: 3}
-  spawnInterval: 2
+  spawnInterval: 5
   spawnXOffset: 2
   yPositions:
-  - -1.5
+  - -0.5
   - -3
   - -4.5
   minHeightPixels: 100
+  spriteFolder: Sprites/food
 --- !u!4 &918899208
 Transform:
   m_ObjectHideFlags: 0
@@ -698,6 +752,59 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2000897376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2000897378}
+  - component: {fileID: 2000897377}
+  m_Layer: 0
+  m_Name: BadFoodSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2000897377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000897376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856115ad364c415448dbd027b5dc91a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Generator
+  foodPrefab: {fileID: 9019104754914290922, guid: 38ee553b59ca0c0459ac40cef439a704, type: 3}
+  spawnInterval: 3
+  spawnXOffset: 2
+  yPositions:
+  - -0.5
+  - -3
+  - -4.5
+  minHeightPixels: 100
+  spriteFolder: Sprites/badfood
+--- !u!4 &2000897378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000897376}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6966, y: -0.61331, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3016097399614925357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -706,6 +813,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1882992348867110329, guid: 4c121fec7d159ea4aac9f596691e7ff4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335768860570306219, guid: 4c121fec7d159ea4aac9f596691e7ff4, type: 3}
       propertyPath: m_Name
       value: Player
@@ -765,3 +876,5 @@ SceneRoots:
   - {fileID: 1279299830}
   - {fileID: 162792710}
   - {fileID: 918899208}
+  - {fileID: 2000897378}
+  - {fileID: 197402728}

@@ -3,24 +3,16 @@ using UnityEngine;
 public class MovingSprites : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float speed = 5f;
+    public float speed = 7f;
+    public bool toDestroy = true;
     private float leftBoundaryX;
 
     void Start()
     {
         Camera cam = Camera.main;
-        if (cam != null)
-        {
-            // Calculate the left edge of the camera view in world coordinates
-            // We subtract an extra buffer (-1f) so the prefab fully exits the screen before being destroyed
-            Vector3 leftEdge = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
-            leftBoundaryX = leftEdge.x - 1f;
-        }
-        else
-        {
-            // Fallback default coordinate if no camera is found
-            leftBoundaryX = -15f;
-        }
+        Vector3 leftEdge = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
+        leftBoundaryX = leftEdge.x - 1f;
+        
     }
 
     void Update()
@@ -37,6 +29,14 @@ public class MovingSprites : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (toDestroy && collision.gameObject.name == "Player"){
+            Player player = collision.gameObject.GetComponent<Player>();
+
+            if(gameObject.name.Contains("badfood")){
+                Debug.Log("badfood :( ");
+                player.PlayNextAnimation();                
+            }
+            Destroy(gameObject);
+        }
     }
 }
